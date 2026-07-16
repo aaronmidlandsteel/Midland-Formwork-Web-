@@ -23,8 +23,22 @@
     <style>
 
         /* ====================================================== */
-        /* GLOBAL STYLES */
+        /* COLOUR SYSTEM — pulled from the Midland Formwork logo */
+        /* Navy, gold and steel-grey, on a clean off-white base   */
         /* ====================================================== */
+
+        :root {
+            --navy: #142E63;
+            --navy-deep: #0C1F45;
+            --gold: #F4C430;
+            --gold-soft: #F8D566;
+            --steel: #9AA3AE;
+            --off-white: #F7F7F4;
+            --white: #FFFFFF;
+            --text: #14171F;
+            --text-muted: #5B6270;
+            --border: #E4E3DD;
+        }
 
         * {
             margin: 0;
@@ -38,8 +52,27 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f7f5f0;
-            color: #111111;
+            background-color: var(--off-white);
+            color: var(--text);
+        }
+
+        section[id] {
+            scroll-margin-top: 90px;
+        }
+
+        /* ====================================================== */
+        /* SCROLL FADE-IN ANIMATION */
+        /* ====================================================== */
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* ====================================================== */
@@ -50,9 +83,9 @@
             position: fixed;
             width: 100%;
             top: 0;
-            background: rgba(247, 245, 240, 0.95);
+            background: rgba(247, 247, 244, 0.9);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid #dddddd;
+            border-bottom: 1px solid var(--border);
             z-index: 1000;
         }
 
@@ -66,21 +99,39 @@
         }
 
         .logo img {
-            height: 60px;
+            height: 50px;
             width: auto;
             display: block;
         }
 
         .menu a {
             text-decoration: none;
-            color: #111;
+            color: var(--navy);
             margin-left: 35px;
-            font-weight: 500;
-            transition: 0.3s;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .menu a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0%;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
         }
 
         .menu a:hover {
-            color: #c89a3d;
+            color: var(--navy);
+        }
+
+        .menu a:hover::after {
+            width: 100%;
         }
 
         /* ====================================================== */
@@ -92,6 +143,9 @@
             display: flex;
             align-items: center;
             padding: 120px 10%;
+            background:
+                radial-gradient(circle at 85% 20%, rgba(244, 196, 48, 0.08), transparent 45%),
+                var(--off-white);
         }
 
         .hero-content {
@@ -99,21 +153,27 @@
         }
 
         .hero-small {
-            color: #c89a3d;
+            color: var(--gold);
+            background: var(--navy);
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 30px;
             font-weight: 700;
+            font-size: 0.8rem;
             letter-spacing: 2px;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
         .hero h1 {
             font-size: clamp(3rem, 9vw, 7rem);
             line-height: 0.95;
             margin-bottom: 30px;
+            color: var(--navy-deep);
         }
 
         .hero p {
             max-width: 650px;
-            color: #555;
+            color: var(--text-muted);
             font-size: 1.2rem;
             margin-bottom: 40px;
             line-height: 1.8;
@@ -121,12 +181,21 @@
 
         .btn {
             display: inline-block;
-            background: #111;
-            color: white;
+            background: var(--navy);
+            color: var(--white);
             text-decoration: none;
-            padding: 16px 30px;
+            padding: 16px 32px;
             border-radius: 8px;
             font-weight: 600;
+            border: 2px solid var(--navy);
+            transition: background 0.3s, color 0.3s, border-color 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--navy-deep);
+            transform: translateY(-2px);
         }
 
         /* ====================================================== */
@@ -140,38 +209,53 @@
         }
 
         .eyebrow {
-            color: #c89a3d;
+            color: var(--gold);
+            background: var(--navy);
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 30px;
             font-weight: 700;
+            font-size: 0.75rem;
             letter-spacing: 2px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         h2 {
             font-size: clamp(2rem, 5vw, 4rem);
             margin-bottom: 30px;
+            color: var(--navy-deep);
         }
 
         .text {
             max-width: 700px;
-            color: #555;
+            color: var(--text-muted);
             line-height: 1.8;
             font-size: 1.1rem;
         }
 
         /* ====================================================== */
-        /* IMAGE PLACEHOLDER */
+        /* IMAGE PLACEHOLDER — leave these for real photos later */
         /* ====================================================== */
 
         .image-placeholder {
             height: 500px;
             margin-top: 60px;
             border-radius: 20px;
-            background: #dddddd;
+            background: repeating-linear-gradient(
+                45deg,
+                var(--white),
+                var(--white) 12px,
+                #EFEEE7 12px,
+                #EFEEE7 24px
+            );
+            border: 2px dashed var(--steel);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #666;
+            color: var(--text-muted);
             font-weight: 600;
+            letter-spacing: 1px;
+            text-align: center;
         }
 
         /* ====================================================== */
@@ -179,23 +263,30 @@
         /* ====================================================== */
 
         .services {
-            border-top: 1px solid #dddddd;
+            border-top: 1px solid var(--border);
         }
 
         .service {
             padding: 40px 0;
-            border-bottom: 1px solid #dddddd;
+            border-bottom: 1px solid var(--border);
+            transition: padding-left 0.3s ease;
+        }
+
+        .service:hover {
+            padding-left: 12px;
         }
 
         .service-number {
-            color: #c89a3d;
+            color: var(--gold);
             margin-bottom: 10px;
             font-weight: 700;
+            -webkit-text-stroke: 1px var(--navy);
         }
 
         .service h3 {
             font-size: 2rem;
             margin-bottom: 15px;
+            color: var(--navy-deep);
         }
 
         /* ====================================================== */
@@ -203,26 +294,30 @@
         /* ====================================================== */
 
         .experience {
-            background: #111111;
-            color: white;
+            background: var(--navy-deep);
+            color: var(--white);
             text-align: center;
             padding: 140px 20px;
         }
 
         .experience-number {
-            color: #c89a3d;
+            color: var(--gold);
             font-size: clamp(5rem, 12vw, 9rem);
             font-weight: 800;
+        }
+
+        .experience h2 {
+            color: var(--white);
         }
 
         .experience p {
             max-width: 700px;
             margin: 20px auto 0;
-            color: #cccccc;
+            color: #C7CCD6;
         }
 
         /* ====================================================== */
-        /* CASE STUDIES PLACEHOLDERS */
+        /* CASE STUDIES SECTION — blank template, fill in as you go */
         /* ====================================================== */
 
         .placeholders {
@@ -234,13 +329,27 @@
 
         .card {
             height: 250px;
-            background: white;
-            border: 1px solid #dddddd;
+            background: var(--white);
+            border: 1px dashed var(--steel);
             border-radius: 15px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: #777;
+            gap: 8px;
+            color: var(--text-muted);
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--gold);
+            transform: translateY(-4px);
+        }
+
+        .card-plus {
+            font-size: 2rem;
+            color: var(--gold);
+            font-weight: 300;
         }
 
         /* ====================================================== */
@@ -251,6 +360,10 @@
             text-align: center;
         }
 
+        .contact .text {
+            margin: auto;
+        }
+
         /* ====================================================== */
         /* FOOTER */
         /* ====================================================== */
@@ -258,8 +371,11 @@
         footer {
             text-align: center;
             padding: 40px;
-            border-top: 1px solid #dddddd;
-            color: #777;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            background: var(--white);
+            font-size: 0.9rem;
+            letter-spacing: 0.3px;
         }
 
         /* ====================================================== */
@@ -295,6 +411,7 @@
             <div class="menu">
                 <a href="#about">About</a>
                 <a href="#services">Services</a>
+                <a href="#case-studies">Case Studies</a>
                 <a href="#contact">Contact</a>
             </div>
 
@@ -336,7 +453,7 @@
     <!-- ABOUT SECTION -->
     <!-- ====================================================== -->
 
-    <section class="section" id="about">
+    <section class="section fade-in" id="about">
 
         <div class="eyebrow">
             ABOUT US
@@ -366,7 +483,7 @@
     <!-- SERVICES SECTION -->
     <!-- ====================================================== -->
 
-    <section class="section" id="services">
+    <section class="section fade-in" id="services">
 
         <div class="eyebrow">
             OUR SERVICES
@@ -431,7 +548,7 @@
     <!-- EXPERIENCE SECTION -->
     <!-- ====================================================== -->
 
-    <section class="experience">
+    <section class="experience fade-in">
 
         <div class="experience-number">
             30+
@@ -449,10 +566,10 @@
     </section>
 
     <!-- ====================================================== -->
-    <!-- CASE STUDIES SECTION -->
+    <!-- CASE STUDIES SECTION — blank template for now -->
     <!-- ====================================================== -->
 
-    <section class="section">
+    <section class="section fade-in" id="case-studies">
 
         <div class="eyebrow">
             CASE STUDIES
@@ -462,17 +579,25 @@
             Selected Projects.
         </h2>
 
+        <p class="text">
+            This section is a blank template — drop your completed project write-ups
+            in here as they become available.
+        </p>
+
         <div class="placeholders">
 
             <div class="card">
+                <div class="card-plus">+</div>
                 Case Study Coming Soon
             </div>
 
             <div class="card">
+                <div class="card-plus">+</div>
                 Case Study Coming Soon
             </div>
 
             <div class="card">
+                <div class="card-plus">+</div>
                 Case Study Coming Soon
             </div>
 
@@ -484,7 +609,7 @@
     <!-- CONTACT SECTION -->
     <!-- ====================================================== -->
 
-    <section class="section contact" id="contact">
+    <section class="section contact fade-in" id="contact">
 
         <div class="eyebrow">
             CONTACT
@@ -513,6 +638,25 @@
         © Midland Formwork • Steel Fixing • Formwork • Concrete Works
 
     </footer>
+
+    <!-- ====================================================== -->
+    <!-- SCROLL ANIMATIONS -->
+    <!-- ====================================================== -->
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15
+        });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
 
 </body>
 
