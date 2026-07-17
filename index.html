@@ -119,22 +119,21 @@
             align-items: center;
         }
 
-       .logo img {
-    height: 50px;
-    width: auto;
-    display: block;
+        .logo img {
+            height: 50px;
+            width: auto;
+            display: block;
 
-    transition: transform 0.3s ease;
-}
+            transition: transform 0.3s ease;
+        }
 
-.logo a {
-    display: inline-block;
-}
+        .logo a {
+            display: inline-block;
+        }
 
-.logo img:hover {
-    transform: scale(1.05);
-}
-
+        .logo img:hover {
+            transform: scale(1.05);
+        }
 
         .menu a {
             text-decoration: none;
@@ -229,37 +228,36 @@
         }
 
         @keyframes heroZoom {
-    from {
-        background-size: 105%;
-    }
-
-    to {
-        background-size: 100%;
-    }
-}
-
-        @keyframes fadeUp{
-            from{ 
-                opacity: 0;
-                transform: translateY(25px); 
+            from {
+                background-size: 105%;
             }
-            to { 
-                opacity: 1; 
+
+            to {
+                background-size: 100%;
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
                 transform: translateY(0);
-            } 
+            }
         }
 
         @keyframes growLine {
-    from {
-        transform: scaleX(0);
-    }
+            from {
+                transform: scaleX(0);
+            }
 
-    to {
-        transform: scaleX(1);
-    }
-}
+            to {
+                transform: scaleX(1);
+            }
+        }
 
-        
         .hero-content {
             max-width: 800px;
             position: relative;
@@ -267,66 +265,65 @@
         }
 
         .hero-small {
-    color: var(--gold);
-    background: var(--navy);
-    display: inline-block;
-    padding: 6px 14px;
-    border-radius: 30px;
-    font-weight: 700;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-    margin-bottom: 24px;
+            color: var(--gold);
+            background: var(--navy);
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 24px;
 
-    animation: fadeUp 0.8s ease forwards;
-}
+            animation: fadeUp 0.8s ease forwards;
+        }
 
         .hero h1 {
-    font-size: clamp(3rem, 9vw, 7rem);
-    line-height: 0.95;
-    margin-bottom: 30px;
-    color: var(--white);
+            font-size: clamp(3rem, 9vw, 7rem);
+            line-height: 0.95;
+            margin-bottom: 30px;
+            color: var(--white);
 
-    opacity: 0;
-    animation: fadeUp 0.8s ease 0.2s forwards;
-}
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.2s forwards;
+        }
 
         .hero p {
-    max-width: 650px;
-    color: var(--white);
-    font-size: 1.2rem;
-    margin-bottom: 40px;
-    line-height: 1.8;
+            max-width: 650px;
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            line-height: 1.8;
 
-    opacity: 0;
-    animation: fadeUp 0.8s ease 0.4s forwards;
-}
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.4s forwards;
+        }
 
         .btn {
-    display: inline-block;
-    background: var(--navy);
-    color: var(--white);
-    text-decoration: none;
-    padding: 16px 32px;
-    border-radius: 8px;
-    font-weight: 600;
-    border: 2px solid var(--navy);
-    transition: background 0.3s,
-                color 0.3s,
-                border-color 0.3s,
-                transform 0.2s;
+            display: inline-block;
+            background: var(--navy);
+            color: var(--white);
+            text-decoration: none;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            border: 2px solid var(--navy);
+            transition: background 0.3s,
+                        color 0.3s,
+                        border-color 0.3s,
+                        transform 0.2s;
 
-    opacity: 0;
-    animation: fadeUp 0.8s ease 0.6s forwards;
-}
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.6s forwards;
+        }
 
-   
         .btn:hover {
-    background: var(--gold);
-    border-color: var(--gold);
-    color: var(--navy-deep);
-    transform: translateY(-3px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-}
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--navy-deep);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
 
         /* ====================================================== */
         /* GENERAL SECTION STYLING */
@@ -350,30 +347,30 @@
             margin-bottom: 20px;
         }
 
-       h2 {
-    font-size: clamp(2rem, 5vw, 4rem);
-    margin-bottom: 30px;
-    color: var(--navy-deep);
+        h2 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            margin-bottom: 30px;
+            color: var(--navy-deep);
 
-    position: relative;
-}
-h2::after {
-    content: "";
-    display: block;
-    width: 120px;
-    height: 4px;
-    background: var(--gold);
-    margin-top: 20px;
+            position: relative;
+        }
 
-    transform: scaleX(0);
-    transform-origin: left center;
-}
+        h2::after {
+            content: "";
+            display: block;
+            width: 120px;
+            height: 4px;
+            background: var(--gold);
+            margin-top: 20px;
 
-.fade-in.visible h2::after {
-    animation: growLine 0.8s ease forwards;
-}
-``
-        
+            transform: scaleX(0);
+            transform-origin: left center;
+        }
+
+        .fade-in.visible h2::after {
+            animation: growLine 0.8s ease forwards;
+        }
+
         .text {
             max-width: 700px;
             color: var(--text-muted);
@@ -414,17 +411,17 @@ h2::after {
             border-top: 1px solid var(--border);
         }
 
-.service {
-    padding: 40px 0;
-    border-bottom: 1px solid var(--border);
-    transition: all 0.35s ease;
-}
+        .service {
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border);
+            transition: all 0.35s ease;
+        }
 
-     .service:hover {
-    padding-left: 12px;
-    transform: translateY(-4px);
-}
-``
+        .service:hover {
+            padding-left: 12px;
+            transform: translateY(-4px);
+        }
+
         .service-number {
             color: var(--gold);
             margin-bottom: 10px;
@@ -513,6 +510,17 @@ h2::after {
             margin: auto;
         }
 
+        .contact .text a {
+            color: var(--navy);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact .text a:hover {
+            color: var(--gold-soft);
+            text-decoration: underline;
+        }
+
         /* ====================================================== */
         /* FOOTER */
         /* ====================================================== */
@@ -527,6 +535,16 @@ h2::after {
             letter-spacing: 0.3px;
         }
 
+        .image-credit {
+            margin-top: 10px;
+            font-size: 0.75rem;
+            color: var(--steel);
+        }
+
+        .image-credit a {
+            color: var(--steel);
+        }
+
         /* ====================================================== */
         /* MOBILE */
         /* ====================================================== */
@@ -539,49 +557,50 @@ h2::after {
 
         }
 
-</style>
+    </style>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Midland Formwork",
-  "telephone": "(057) 867 9650",
-  "email": "sales@midlandsteel.com",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Unit 21 Bay Road",
-    "addressLocality": "Portlaoise",
-    "addressRegion": "County Laois",
-    "postalCode": "R32 NY77",
-    "addressCountry": "IE"
-  }
-}
-</script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Midland Formwork",
+      "telephone": "(057) 867 9650",
+      "email": "sales@midlandsteel.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Unit 21 Bay Road",
+        "addressLocality": "Portlaoise",
+        "addressRegion": "County Laois",
+        "postalCode": "R32 NY77",
+        "addressCountry": "IE"
+      }
+    }
+    </script>
 
 </head>
 
 <body>
 
-<!-- ====================================================== -->
-<!-- HEADER -->
-<!-- ====================================================== -->
-<header>
-    <div class="nav">
-       <div class="logo">
-    #home
-        images/MF-logo.png
-    </a>
-</div>
+    <!-- ====================================================== -->
+    <!-- HEADER -->
+    <!-- ====================================================== -->
+    <header>
+        <div class="nav">
+            <div class="logo">
+                <a href="#home">
+                    <img src="images/MF-logo.png" alt="Midland Formwork Logo">
+                </a>
+            </div>
 
-        <div class="menu">
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#case-studies">Case Studies</a>
-            <a href="#contact">Contact</a>
+            <div class="menu">
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#case-studies">Case Studies</a>
+                <a href="#contact">Contact</a>
+            </div>
         </div>
-    </div>
-</header>
+    </header>
+
     <!-- ====================================================== -->
     <!-- HERO SECTION -->
     <!-- ====================================================== -->
@@ -599,9 +618,9 @@ h2::after {
                 Proven Through Experience.
             </h1>
 
-         <p>
-    Midland Formwork delivers specialist steel fixing, formwork and concrete construction services across Ireland, backed by over 30 years of industry experience.
-</p>
+            <p>
+                Midland Formwork delivers specialist steel fixing, formwork and concrete construction services across Ireland, backed by over 30 years of industry experience.
+            </p>
 
             <a href="#contact" class="btn">
                 Discuss Your Project
@@ -665,9 +684,8 @@ h2::after {
 
                 <h3>Steel Fixing</h3>
 
-              <p class="text">
-    Specialist steel fixing and reinforcement installation services for commercial, industrial and civil engineering projects throughout Ireland, delivered with precision, safety and attention to detail.
-</p>
+                <p class="text">
+                    Specialist steel fixing and reinforcement installation services for commercial, industrial and civil engineering projects throughout Ireland, delivered with precision, safety and attention to detail.
                 </p>
 
             </div>
@@ -712,9 +730,9 @@ h2::after {
 
     <section class="experience fade-in">
 
-       <div class="experience-number" id="experience-counter">
-    0
-</div>
+        <div class="experience-number" id="experience-counter">
+            0
+        </div>
 
         <h2>
             Years Of Industry Experience
@@ -781,23 +799,23 @@ h2::after {
             Let's Discuss Your Next Project.
         </h2>
 
-       <p class="text" style="margin:auto;">
+        <p class="text" style="margin:auto;">
 
+            <a href="tel:+35357867 9650">
+                (057) 867 9650
+            </a>
 
-        (057) 867 9650
-    </a>
+            <br><br>
 
-    <br><br>
+            <a href="mailto:sales@midlandsteel.com">
+                Sales@midlandsteel.com
+            </a>
 
-    <a href="mailto:sales@midlandsteel.com">
-        Sales@midlandsteel.com
-    </a>
+            <br><br>
 
-    <br><br>
+            Unit 21, Bay Road Portlaoise R32 NY77 County Laois
 
-    Unit 21, Bay Road Portlaoise R32 NY77 County Laois
-
-</p>
+        </p>
 
     </section>
 
@@ -810,11 +828,11 @@ h2::after {
         © Midland Formwork • Steel Fixing • Formwork • Concrete Works
 
         <p class="image-credit">
-  Construction image by freestockcenter via
-  <a href="https://www.magnific.com" target="_blank" rel="noopener">
-    Magnific
-  </a>.
-</p>
+            Construction image by freestockcenter via
+            <a href="https://www.magnific.com" target="_blank" rel="noopener">
+                Magnific
+            </a>.
+        </p>
 
     </footer>
 
@@ -822,53 +840,55 @@ h2::after {
     <!-- SCROLL ANIMATIONS -->
     <!-- ====================================================== -->
 
-  <script>
+    <script>
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.15
-    });
-
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-    const counter = document.getElementById('experience-counter');
-
-    const counterObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-
-            if (entry.isIntersecting) {
-
-                let current = 0;
-
-                const interval = setInterval(() => {
-
-                    current++;
-
-                    counter.textContent = current + "+";
-
-                    if (current >= 30) {
-                        clearInterval(interval);
-                    }
-
-                }, 35);
-
-                counterObserver.unobserve(counter);
-
-            }
-
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15
         });
 
-    });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-    counterObserver.observe(counter);
+        const counter = document.getElementById('experience-counter');
 
-</script>
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    let current = 0;
+
+                    const interval = setInterval(() => {
+
+                        current++;
+
+                        counter.textContent = current + "+";
+
+                        if (current >= 30) {
+                            clearInterval(interval);
+                        }
+
+                    }, 35);
+
+                    counterObserver.unobserve(counter);
+
+                }
+
+            });
+
+        }, {
+            threshold: 0.5
+        });
+
+        counterObserver.observe(counter);
+
+    </script>
 
 </body>
 </html>
