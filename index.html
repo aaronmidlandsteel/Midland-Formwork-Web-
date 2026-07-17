@@ -62,17 +62,15 @@
         }
 
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-       
-            html {
-    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body {
-    overscroll-behavior: none;
+html {
+    scroll-behavior: smooth;
 }
+``
 
         body {
             font-family: 'Inter', sans-serif;
@@ -925,7 +923,7 @@ window.addEventListener('scroll', () => {
         header.classList.remove('hidden');
     }
 
-    lastScroll = currentScroll;
+   lastScroll = currentScroll;
 
 });
 
