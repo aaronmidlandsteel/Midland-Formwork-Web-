@@ -630,9 +630,9 @@
 
     <section class="experience fade-in">
 
-        <div class="experience-number">
-            30+
-        </div>
+       <div class="experience-number" id="experience-counter">
+    0
+</div>
 
         <h2>
             Years Of Industry Experience
@@ -740,20 +740,53 @@
     <!-- SCROLL ANIMATIONS -->
     <!-- ====================================================== -->
 
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.15
+  <script>
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.15
+    });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    const counter = document.getElementById('experience-counter');
+
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                let current = 0;
+
+                const interval = setInterval(() => {
+
+                    current++;
+
+                    counter.textContent = current + "+";
+
+                    if (current >= 30) {
+                        clearInterval(interval);
+                    }
+
+                }, 50);
+
+                counterObserver.unobserve(counter);
+
+            }
+
         });
 
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-    </script>
+    });
+
+    counterObserver.observe(counter);
+
+</script>
 
 </body>
 </html>
