@@ -174,9 +174,10 @@
                 ),
                 url('images/mf-bg.jpg');
 
-            background-size: cover;
+            background-size: 105%;
             background-position: center center;
             background-repeat: no-repeat;
+            animation: heroZoom 8s ease-out forwards;
         }
 
         .hero::before {
@@ -215,6 +216,17 @@
                 opacity: 1;
             }
         }
+
+        @keyframes heroZoom {
+    from {
+        background-size: 105%;
+    }
+
+    to {
+        background-size: 100%;
+    }
+}
+``
 
         .hero-content {
             max-width: 800px;
