@@ -100,16 +100,29 @@
         /* HEADER / NAVIGATION */
         /* ====================================================== */
 
-        header {
-            position: fixed;
-            width: 100%;
-            top: 0;
-            background: rgba(12, 31, 69, 0.96);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(244, 196, 48, 0.25);
-            z-index: 1000;
-        }
+       header {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
 
+    width: calc(100% - 40px);
+    max-width: 1400px;
+
+    background: rgba(12, 31, 69, 0.92);
+    backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(244, 196, 48, 0.15);
+    border-radius: 16px;
+
+    z-index: 1000;
+
+    transition: all 0.3s ease;
+}
+header.scrolled {
+    top: 10px;
+    background: rgba(12, 31, 69, 0.98);
+}
         .nav {
             max-width: 1400px;
             margin: auto;
@@ -887,6 +900,18 @@
         });
 
         counterObserver.observe(counter);
+
+        window.addEventListener('scroll', () => {
+
+    const header = document.querySelector('header');
+
+    if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+
+});
 
     </script>
 
