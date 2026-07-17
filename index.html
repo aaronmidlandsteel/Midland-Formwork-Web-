@@ -80,14 +80,14 @@
         /* ====================================================== */
 
         header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    background: rgba(12, 31, 69, 0.96);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(244, 196, 48, 0.25);
-    z-index: 1000;
-}
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background: rgba(12, 31, 69, 0.96);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(244, 196, 48, 0.25);
+            z-index: 1000;
+        }
 
         .nav {
             max-width: 1400px;
@@ -127,7 +127,7 @@
         }
 
         .menu a:hover {
-            color: var(--navy);
+            color: var(--gold);
         }
 
         .menu a:hover::after {
@@ -138,28 +138,67 @@
         /* HERO SECTION */
         /* ====================================================== */
 
-     .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 120px 10%;
-    position: relative;
-    overflow: hidden;
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 10%;
+            position: relative;
+            overflow: hidden;
 
-    background:
-        linear-gradient(
-            rgba(12,31,69,0.75),
-            rgba(12,31,69,0.65)
-        ),
-        url('images/mf-bg.jpg');
+            background:
+                linear-gradient(
+                    rgba(12,31,69,0.75),
+                    rgba(12,31,69,0.65)
+                ),
+                url('images/mf-bg.jpg');
 
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
-hero::before {2    content: "";3    position: absolute;4    inset: 0;5 6    background:7        radial-gradient(8            circle at 20% 25%,9            rgba(244,196,48,0.18),10            transparent 40%11        );12 13    animation: heroGlow 8s ease-in-out infinite alternate;14}15 16.hero::after {17    content: "";18    position: absolute;19    inset: 0;20 21    background:22        linear-gradient(23            to bottom,24            rgba(0,0,0,0.05),25            rgba(0,0,0,0.35)26        );27}Show mo
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            background:
+                radial-gradient(
+                    circle at 20% 25%,
+                    rgba(244,196,48,0.18),
+                    transparent 40%
+                );
+
+            animation: heroGlow 8s ease-in-out infinite alternate;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(0,0,0,0.05),
+                    rgba(0,0,0,0.35)
+                );
+        }
+
+        @keyframes heroGlow {
+            0% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
         .hero-content {
             max-width: 800px;
+            position: relative;
+            z-index: 2;
         }
 
         .hero-small {
@@ -178,12 +217,12 @@ hero::before {2    content: "";3    position: absolute;4    inset: 0;5 6    bac
             font-size: clamp(3rem, 9vw, 7rem);
             line-height: 0.95;
             margin-bottom: 30px;
-            color: var(--navy-deep);
+            color: var(--white);
         }
 
         .hero p {
             max-width: 650px;
-            color: var(--text-muted);
+            color: var(--white);
             font-size: 1.2rem;
             margin-bottom: 40px;
             line-height: 1.8;
@@ -387,7 +426,7 @@ hero::before {2    content: "";3    position: absolute;4    inset: 0;5 6    bac
             font-size: 0.9rem;
             letter-spacing: 0.3px;
         }
-hero::before {2    content: "";3    position: absolute;4    inset: 0;5 6    background:7        radial-gradient(8            circle at 20% 25%,9            rgba(244,196,48,0.18),10            transparent 40%11        );12 13    animation: heroGlow 8s ease-in-out infinite alternate;14}15 16.hero::after {17    content: "";18    position: absolute;19    inset: 0;20 21    background:22        linear-gradient(23            to bottom,24            rgba(0,0,0,0.05),25            rgba(0,0,0,0.35)26        );27}Show mo
+
         /* ====================================================== */
         /* MOBILE */
         /* ====================================================== */
@@ -669,5 +708,4 @@ hero::before {2    content: "";3    position: absolute;4    inset: 0;5 6    bac
     </script>
 
 </body>
-
 </html>
