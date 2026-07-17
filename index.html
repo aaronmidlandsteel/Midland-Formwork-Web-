@@ -238,6 +238,16 @@
             } 
         }
 
+        @keyframes growLine {
+    from {
+        transform: scaleX(0);
+    }
+
+    to {
+        transform: scaleX(1);
+    }
+}
+
         
         .hero-content {
             max-width: 800px;
@@ -329,12 +339,27 @@
             margin-bottom: 20px;
         }
 
-        h2 {
-            font-size: clamp(2rem, 5vw, 4rem);
-            margin-bottom: 30px;
-            color: var(--navy-deep);
-        }
+       h2 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin-bottom: 30px;
+    color: var(--navy-deep);
 
+    position: relative;
+}
+h2::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--gold);
+    margin-top: 20px;
+
+    transform: scaleX(0);
+    transform-origin: left;
+
+    animation: growLine 1s ease forwards;
+}
+        
         .text {
             max-width: 700px;
             color: var(--text-muted);
