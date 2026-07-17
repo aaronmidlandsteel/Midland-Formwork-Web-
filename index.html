@@ -100,28 +100,25 @@
         /* HEADER / NAVIGATION */
         /* ====================================================== */
 
-       header {
+  header {
     position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+    width: 100%;
+    top: 0;
+    left: 0;
 
-    width: calc(100% - 40px);
-    max-width: 1400px;
+    background: rgba(12, 31, 69, 0.85);
+    backdrop-filter: blur(8px);
 
-    background: rgba(12, 31, 69, 0.92);
-    backdrop-filter: blur(12px);
-
-    border: 1px solid rgba(244, 196, 48, 0.15);
-    border-radius: 16px;
+    border-bottom: 1px solid rgba(244, 196, 48, 0.15);
 
     z-index: 1000;
 
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
 }
-header.scrolled {
-    top: 10px;
+
+    header.scrolled {
     background: rgba(12, 31, 69, 0.98);
+    border-bottom: 1px solid rgba(244, 196, 48, 0.35);
 }
         .nav {
             max-width: 1400px;
