@@ -349,16 +349,19 @@
 h2::after {
     content: "";
     display: block;
-    width: 80px;
+    width: 120px;
     height: 4px;
     background: var(--gold);
     margin-top: 20px;
 
     transform: scaleX(0);
-    transform-origin: left;
-
-    animation: growLine 1s ease forwards;
+    transform-origin: left center;
 }
+
+.fade-in.visible h2::after {
+    animation: growLine 0.8s ease forwards;
+}
+``
         
         .text {
             max-width: 700px;
