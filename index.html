@@ -70,7 +70,7 @@
 html {
     scroll-behavior: smooth;
 }
-``
+
 
         body {
             font-family: 'Manrope', sans-serif;
@@ -87,10 +87,13 @@ html {
         /* ====================================================== */
 
         .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
+    opacity: 0;
+    transform: translateY(50px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
 
         .fade-in.visible {
             opacity: 1;
@@ -122,14 +125,15 @@ html {
  header.scrolled {
     background: rgba(34, 65, 136, 0.98);
     border-bottom: 1px solid rgba(244, 196, 48, 0.35);
+
+     header.hidden {
+    transform: translateY(-120%);
 }
-header.hidden {
-    transform: translateY(-100%);
-}
+``
         .nav {
             max-width: 1400px;
             margin: auto;
-            padding: 15px 30px;
+            padding: 20px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -151,15 +155,17 @@ header.hidden {
             transform: scale(1.05);
         }
 
-        .menu a {
-            text-decoration: none;
-            color: var(--white);
-            margin-left: 35px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            letter-spacing: 0.3px;
-            transition: color 0.3s;
-            position: relative;
+     .menu a {
+    text-decoration: none;
+    color: var(--white);
+    margin-left: 35px;
+    font-weight: 800;
+    font-size: 0.95rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+    position: relative;
+}
         }
 
         .menu a::after {
@@ -866,7 +872,7 @@ header.hidden {
                 }
             });
         }, {
-            threshold: 0.15
+            threshold: 0.10
         });
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
