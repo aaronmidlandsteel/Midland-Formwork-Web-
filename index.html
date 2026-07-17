@@ -130,6 +130,7 @@ header.scrolled {
 header.hidden {
     transform: translateY(-120%);
 }
+
         .nav {
             max-width: 1400px;
             margin: auto;
@@ -166,7 +167,6 @@ header.hidden {
     transition: color 0.3s;
     position: relative;
 }
-        
 
         .menu a::after {
             content: "";
@@ -185,6 +185,44 @@ header.hidden {
 
         .menu a:hover::after {
             width: 100%;
+        }
+
+        /* ====================================================== */
+        /* MOBILE NAV TOGGLE */
+        /* ====================================================== */
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 32px;
+            height: 32px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .nav-toggle span {
+            display: block;
+            height: 2px;
+            width: 100%;
+            background: var(--white);
+            border-radius: 2px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .nav-toggle[aria-expanded="true"] span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .nav-toggle[aria-expanded="true"] span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-toggle[aria-expanded="true"] span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
         }
 
         /* ====================================================== */
@@ -557,24 +595,38 @@ header.hidden {
             letter-spacing: 0.3px;
         }
 
-        .image-credit {
-            margin-top: 10px;
-            font-size: 0.75rem;
-            color: var(--steel);
-        }
-
-        .image-credit a {
-            color: var(--steel);
-        }
-
         /* ====================================================== */
         /* MOBILE */
         /* ====================================================== */
 
         @media(max-width:768px) {
 
+            .nav-toggle {
+                display: flex;
+            }
+
             .menu {
-                display: none;
+                position: fixed;
+                top: 90px;
+                left: 0;
+                right: 0;
+                background: var(--navy-deep);
+                flex-direction: column;
+                padding: 20px 30px 30px;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.35s ease;
+            }
+
+            .menu.open {
+                max-height: 400px;
+            }
+
+            .menu a {
+                display: block;
+                margin: 0;
+                padding: 14px 0;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
             }
 
         }
@@ -614,12 +666,18 @@ header.hidden {
                 </a>
             </div>
 
-            <div class="menu">
+            <div class="menu" id="nav-menu">
                 <a href="#about">About</a>
                 <a href="#services">Services</a>
                 <a href="#case-studies">Case Studies</a>
                 <a href="#contact">Contact</a>
             </div>
+
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
@@ -823,7 +881,7 @@ header.hidden {
 
         <p class="text" style="margin:auto;">
 
-            <a href="tel:+35357867 9650">
+            <a href="tel:+35357867679650">
                 (057) 867 9650
             </a>
 
@@ -848,13 +906,6 @@ header.hidden {
     <footer>
 
         © Midland Formwork • Steel Fixing • Formwork • Concrete Works
-
-        <p class="image-credit">
-            Construction image by freestockcenter via
-            <a href="https://www.magnific.com" target="_blank" rel="noopener">
-                Magnific
-            </a>.
-        </p>
 
     </footer>
 
@@ -910,28 +961,44 @@ header.hidden {
 
         counterObserver.observe(counter);
 
-       let lastScroll = 0;
+        let lastScroll = 0;
 
-window.addEventListener('scroll', () => {
+        window.addEventListener('scroll', () => {
 
-    const header = document.querySelector('header');
-    const currentScroll = window.pageYOffset;
+            const header = document.querySelector('header');
+            const currentScroll = window.pageYOffset;
 
-    if (currentScroll > 100) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
+            if (currentScroll > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
 
-    if (currentScroll > lastScroll && currentScroll > 150) {
-        header.classList.add('hidden');
-    } else {
-        header.classList.remove('hidden');
-    }
+            if (currentScroll > lastScroll && currentScroll > 150) {
+                header.classList.add('hidden');
+            } else {
+                header.classList.remove('hidden');
+            }
 
-   lastScroll = currentScroll;
+            lastScroll = currentScroll;
 
-});
+        });
+
+        // Mobile nav toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        navToggle.addEventListener('click', () => {
+            const isOpen = navMenu.classList.toggle('open');
+            navToggle.setAttribute('aria-expanded', isOpen);
+        });
+
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('open');
+                navToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
 
     </script>
 
