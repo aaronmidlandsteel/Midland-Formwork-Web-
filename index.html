@@ -443,26 +443,30 @@ header.hidden {
         /* IMAGE PLACEHOLDER — leave these for real photos later */
         /* ====================================================== */
 
-        .image-placeholder {
-            height: 500px;
-            margin-top: 60px;
-            border-radius: 20px;
-            background: repeating-linear-gradient(
-                45deg,
-                var(--white),
-                var(--white) 12px,
-                #EFEEE7 12px,
-                #EFEEE7 24px
-            );
-            border: 2px dashed var(--steel);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-align: center;
-        }
+.about-image {
+    margin-top: 60px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+}
+
+.about-image img {
+    width: 100%;
+    height: 500px;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.about-image:hover img {
+    transform: scale(1.03);
+}
+
+@media(max-width:768px) {
+    .about-image img {
+        height: 260px;
+    }
+}
 
         /* ====================================================== */
         /* SERVICES SECTION */
@@ -841,9 +845,8 @@ header.hidden {
             that only comes from more than 30 years in the industry.
         </p>
 
-        <div class="image-placeholder">
-            INSERT PROJECT PHOTOS 
-        </div>
+      <div class="about-image">
+    <img src="images/hanover-quay2.jpg>
 
     </section>
 
