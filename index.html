@@ -440,45 +440,89 @@ header.hidden {
             font-size: 1.1rem;
         }
 
-        /* ====================================================== */
-        /* IMAGE PLACEHOLDER — leave these for real photos later */
-        /* ====================================================== */
+/* ====================================================== */
+/* ABOUT IMAGE */
+/* ====================================================== */
 
 .about-image {
     position: relative;
+    width: 100%;
+
     margin-top: 60px;
     margin-bottom: 120px;
+
     border-radius: 20px;
     overflow: hidden;
+
     box-shadow: 0 20px 50px rgba(0,0,0,0.12);
-    transition: box-shadow 0.6s ease;
+    transition: box-shadow 0.4s ease;
 }
-.about-image:hover img {
-    transform: scale(1.02);
+
+.about-image:hover {
+    box-shadow: 0 30px 70px rgba(0,0,0,0.18);
 }
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ====================================================== */
 /* IMAGE CAPTION */
+/* ====================================================== */
+
 .image-caption {
     position: absolute;
-    bottom: 20px;
+
     left: 20px;
-    background: rgba(20, 46, 99, 0.9);
-    color: #fff;
+    bottom: 20px;
+
+    background: rgba(20, 46, 99, 0.92);
+    color: #ffffff;
+
     padding: 12px 16px;
+
     border-radius: 10px;
-    font-size: 0.9rem;
+
     line-height: 1.4;
-    backdrop-filter: blur(4px);
+    font-size: 0.9rem;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
+
 .image-caption strong {
     display: block;
+
     color: var(--gold);
-    margin-bottom: 2px;
+
+    font-size: 1rem;
+    font-weight: 700;
+
+    margin-bottom: 3px;
 }
+
 @media (max-width: 768px) {
-    .about-image img {
-        height: 260px;
+
+    .about-image {
+        margin-bottom: 80px;
     }
+
+    .image-caption {
+        left: 15px;
+        bottom: 15px;
+
+        padding: 10px 12px;
+
+        font-size: 0.8rem;
+    }
+
+    .image-caption strong {
+        font-size: 0.9rem;
+    }
+
 }
+``
 
         /* ====================================================== */
         /* SERVICES SECTION */
