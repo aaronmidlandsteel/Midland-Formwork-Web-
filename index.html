@@ -232,6 +232,7 @@ header.hidden {
 
         .hero {
             min-height: 100vh;
+            max-height: 900px; /* FIX: stop hero ballooning to full screen-height on tall/portrait monitors */
             display: flex;
             align-items: center;
             padding: 120px 10%;
@@ -245,7 +246,7 @@ header.hidden {
                 ),
                 url('images/mf-bg.jpg');
 
-            background-size: 105%;
+            background-size: cover; /* FIX: was 105%, which only scales by width and leaves gaps on tall screens */
             background-position: center center;
             background-repeat: no-repeat;
             animation: heroZoom 8s ease-out forwards;
@@ -290,7 +291,7 @@ header.hidden {
 
         @keyframes heroZoom {
             from {
-                background-size: 105%;
+                background-size: 110%; /* FIX: was 105% width-only; now pairs with cover for a true zoom */
             }
 
             to {
@@ -715,6 +716,28 @@ header.hidden {
             background: var(--white);
             font-size: 0.9rem;
             letter-spacing: 0.3px;
+        }
+
+        /* ====================================================== */
+        /* PORTRAIT / TALL-NARROW DESKTOP MONITORS                */
+        /* Catches wide-but-tall screens that max-width:768px      */
+        /* never reaches, e.g. a PC monitor rotated to portrait    */
+        /* ====================================================== */
+
+        @media (orientation: portrait) and (min-width: 769px) {
+
+            .hero {
+                padding: 100px 8%;
+            }
+
+            .hero h1 {
+                font-size: clamp(2.6rem, 7vw, 4.5rem);
+            }
+
+            .section {
+                padding: 90px 20px;
+            }
+
         }
 
         /* ====================================================== */
