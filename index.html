@@ -782,12 +782,23 @@ header.hidden {
                 border-bottom: 1px solid rgba(255,255,255,0.1);
             }
 
-            /* -------------------------------------------------- */
+                     /* -------------------------------------------------- */
             /* Hero: less padding, smaller heading floor, no      */
             /* overzealous zoom animation on small screens        */
             /* -------------------------------------------------- */
 
-         
+            .hero {
+                min-height: 100svh;
+                max-height: none;
+                padding: 100px 6% 60px;
+                animation: none;
+                background-position: center 25%;
+            }
+
+            .hero::before {
+                animation: none;
+                opacity: 0.8;
+            }
 
             .hero::before {
                 animation: none;
